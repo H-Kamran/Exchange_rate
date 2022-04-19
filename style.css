@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: Roboto;
+}
+
+/* head */
+
+.header-div {
+    height: 50px;
+    background-color: #F5F5F6;
+    display: grid;
+    grid-template-columns: 8.68% 13.281% 53.298% 10.85% 5.034% 8.854%;
+    text-align: center;
+}
+
+.logo {
+    margin: auto;
+
+    width: 89px;
+    height: 23px;
+    grid-column-start: 2;
+}
+
+.header-div ul {
+    list-style: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-div li a {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 13px;
+    letter-spacing: 0.06em;
+    text-align: left;
+
+    color: #959BA4;
+}
+
+.enter-a {
+    margin: auto;
+
+    grid-column-start: 5;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 33px;
+    letter-spacing: 0.06em;
+
+    width: 58px;
+    height: 33px;
+    background-color: #FFFFFF;
+}
+
+/* main */
+
+.main-div {
+    margin-top: 56px;
+    margin-left: 253px;
+    width: 55.642%;
+}
+
+.main-div h1 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.currencies-div {
+    margin-top: 19px;
+}
+
+.left-currency-div,
+.right-currency-div {
+    width: 40.405%;
+}
+
+.currency-head-p {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    height: 28px;
+}
+
+.currency-list{
+    list-style: none;
+    border: 1px solid #E5E5E5;
+    border-radius: 3px 0px 0px 3px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.currency-list li {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: center;
+
+
+    width: 65.06px;
+    height: 30px;
+    border-radius: 3px 0px 0px 3px;
+    background-color: #833AE0;
+}
