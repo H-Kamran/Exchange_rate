@@ -21,6 +21,7 @@ body {
 
 .logo {
     margin: auto;
+    margin-left: 0px;
 
     width: 89px;
     height: 23px;
@@ -44,6 +45,10 @@ body {
     text-align: left;
 
     color: #959BA4;
+}
+
+.header-div li:first-child a{
+    color: #000;
 }
 
 .enter-a {
@@ -78,6 +83,10 @@ body {
 
 .currencies-div {
     margin-top: 19px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .left-currency-div,
@@ -93,12 +102,13 @@ body {
     text-align: left;
 
     height: 28px;
+    color: #9F9F9F;
 }
 
-.currency-list{
+.currency-list {
     list-style: none;
     border: 1px solid #E5E5E5;
-    border-radius: 3px 0px 0px 3px;
+    border-radius: 3px;
 
     display: flex;
     flex-direction: row;
@@ -111,9 +121,52 @@ body {
     letter-spacing: 0em;
     text-align: center;
 
-
-    width: 65.06px;
+    width: 25%;
     height: 30px;
-    border-radius: 3px 0px 0px 3px;
+    box-sizing: border-box;
+    border-left: 1px solid #E5E5E5;
+    color: #C6C6C6;
+}
+
+.currency-list li:first-child {
+    border-left: none;
+    color: #FFFFFF;
     background-color: #833AE0;
+    border-radius: 2px 0px 0px 2px;
+}
+
+.currencies-div li:last-child {
+    border-radius: 0px 2px 2px 0px;
+}
+
+
+.currency-value {
+    margin-top: 20px;
+    border: 1px solid #E5E5E5;
+}
+
+.input-number {
+    margin-top: 10px;
+    margin-left: 13px;
+    width: 90%;
+    border: none;
+
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.exchange-rate{
+    margin-left: 15px;
+    margin-bottom: 4px;
+    height: 28px;
+    color: #C6C6C6;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
 }
