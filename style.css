@@ -130,8 +130,6 @@ body {
 
 .currency-list li:first-child {
     border-left: none;
-    color: #FFFFFF;
-    background-color: #833AE0;
     border-radius: 2px 0px 0px 2px;
 }
 
