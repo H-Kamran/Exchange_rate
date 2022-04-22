@@ -6,7 +6,7 @@ var symbol = 'USD';
 var amount = 1;
 
 const getExchangeRate = async (base, symbol, amount) => {
-    amount = Number(amount.toString().split(',').join('.'));
+    // amount = Number(amount.toString().split(',').join('.'));
     const response = await fetch(`https://api.exchangerate.host/latest?base=${base}&symbols=${symbol}&amount=${amount}`);
     const data = await response.json();
     return data;
@@ -54,23 +54,40 @@ function getExchangeRateFunc(forward, amount) {
     }
 }
 
-// Default
-getExchangeRateFunc(true, amount);
-currency_lists[0].firstElementChild.style.backgroundColor = "#833AE0";
-currency_lists[0].firstElementChild.style.color = "#FFFFFF";
-currency_lists[1].firstElementChild.nextElementSibling.style.backgroundColor = "#833AE0";
-currency_lists[1].firstElementChild.nextElementSibling.style.color = "#FFFFFF";
-
 document.addEventListener('keypress', (e) => {
     let regex = new RegExp("^[0-9]|[.]|[,]");
-    // e.target.value.replace('[,]','.');
-    let key = String.fromCharCode(!e.charCode ? e.which : e.charCode);
-    if (!regex.test(key)) {
+    // let key = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+
+    // If there is another symbol that is not defined in regexp, we deprecate
+    if (!regex.test(e.key)) {
         e.preventDefault();
+    }
+    else {
+        // if there is more than one dot, we deprecate
+        if (e.target.value.includes('.') && (e.key === ',' || e.key === '.')) {
+            e.preventDefault();
+        }
+        // Converting comma to dot
+        else if(e.key === ','){
+            let start = e.target.selectionStart;
+            let end = e.target.selectionEnd;
+            let oldValue = e.target.value;
+
+            e.target.value = oldValue.slice(0, start) + '.' + oldValue.slice(end);
+            e.target.selectionStart = e.target.selectionEnd = start + 1;
+            
+            e.preventDefault();
+        }
     }
 });
 
 input.forEach((item, index) => {
+    item.addEventListener('change', changeEnterEvent);
+    item.addEventListener('keypress', (e) => {
+        if (e.code == "Enter") {
+            changeEnterEvent();
+        }
+    });
     function changeEnterEvent() {
         if (index == 0) {
             amount = item.value;
@@ -81,12 +98,6 @@ input.forEach((item, index) => {
             getExchangeRateFunc(false, item.value);
         }
     }
-    item.addEventListener('change', changeEnterEvent);
-    item.addEventListener('keypress', (e) => {
-        if (e.code == "Enter") {
-            changeEnterEvent();
-        }
-    });
 });
 
 currency_lists.forEach((ul, index) => {
@@ -128,3 +139,7 @@ function changeColor(base, symbol) {
         }
     });
 }
+
+// Default
+getExchangeRateFunc(true, amount);
+changeColor(base, symbol)

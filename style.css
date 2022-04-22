@@ -47,7 +47,7 @@ body {
     color: #959BA4;
 }
 
-.header-div li:first-child a{
+.header-div li:first-child a {
     color: #000;
 }
 
@@ -156,7 +156,7 @@ body {
     text-align: left;
 }
 
-.exchange-rate{
+.exchange-rate {
     margin-left: 15px;
     margin-bottom: 4px;
     height: 28px;
@@ -168,3 +168,12 @@ body {
     letter-spacing: 0em;
     text-align: left;
 }
+
+/* input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+} */
