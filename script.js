@@ -13,8 +13,12 @@ const getExchangeRate = async (base, symbol, amount) => {
 }
 
 function writeCurrencyRelations() {
-    exchangeRatesP[0].textContent = `${input[0].value} ${base} = ${input[1].value} ${symbol}`;
-    exchangeRatesP[1].textContent = `${input[1].value} ${symbol} = ${input[0].value} ${base}`;
+    getExchangeRate(base, symbol, 1).then(data => {
+        exchangeRatesP[0].textContent = `1 ${base} = ${data.rates[`${symbol}`]} ${symbol}`;
+    });
+    getExchangeRate(symbol, base, 1).then(data => {
+        exchangeRatesP[1].textContent = `1 ${symbol} = ${data.rates[`${base}`]} ${base}`;
+    });
 }
 
 function getExchangeRateFunc(forward, amount) {
