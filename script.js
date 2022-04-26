@@ -48,7 +48,7 @@ function getExchangeRateFunc(forward, amount) {
                 writeCurrencyRelations();
             } else {
                 getExchangeRate(symbol, base, amount).then(data => {
-                    input[0].value = data.rates[`${base}`];
+                    amount = input[0].value = data.rates[`${base}`];
                     writeCurrencyRelations();
                 }).catch(() => {
                     alert('Internet Disconnected');
