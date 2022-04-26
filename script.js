@@ -73,13 +73,7 @@ document.addEventListener('keypress', (e) => {
         }
         // Converting comma to dot
         else if(e.key === ','){
-            let start = e.target.selectionStart;
-            let end = e.target.selectionEnd;
-            let oldValue = e.target.value;
-
-            e.target.value = oldValue.slice(0, start) + '.' + oldValue.slice(end);
-            e.target.selectionStart = e.target.selectionEnd = start + 1;
-            
+            e.target.value += '.';
             e.preventDefault();
         }
     }
