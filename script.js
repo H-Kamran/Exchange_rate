@@ -21,7 +21,7 @@ function writeCurrencyRelations() {
     });
 }
 
-function getExchangeRateFunc(forward, amount) {
+function getExchangeRateFunc(forward, value) {
     if (base === symbol) {
         if (forward) {
             input[1].value = input[0].value;
@@ -35,7 +35,7 @@ function getExchangeRateFunc(forward, amount) {
                 input[1].value = 0;
                 writeCurrencyRelations();
             } else {
-                getExchangeRate(base, symbol, amount).then(data => {
+                getExchangeRate(base, symbol, value).then(data => {
                     input[1].value = data.rates[`${symbol}`];
                     writeCurrencyRelations();
                 }).catch((e) => {
@@ -47,7 +47,7 @@ function getExchangeRateFunc(forward, amount) {
                 input[0].value = 0;
                 writeCurrencyRelations();
             } else {
-                getExchangeRate(symbol, base, amount).then(data => {
+                getExchangeRate(symbol, base, value).then(data => {
                     amount = input[0].value = data.rates[`${base}`];
                     writeCurrencyRelations();
                 }).catch(() => {
@@ -89,8 +89,6 @@ input.forEach((item, index) => {
     function changeEnterEvent() {
         if (index == 0) {
             amount = item.value;
-        }
-        if (index == 0) {
             getExchangeRateFunc(true, item.value);
         } else {
             getExchangeRateFunc(false, item.value);
